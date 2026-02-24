@@ -53,7 +53,7 @@ class AIService
      */
     public function tutorChat(string $subject, string $question, array $history = []): string
     {
-        $systemPrompt = "You are a helpful and patient tutor specialising in {$subject}. "
+        $systemPrompt = "You are a helpful and patient tutor specializing in {$subject}. "
                       . 'Explain concepts clearly, provide examples, and guide the student '
                       . 'toward understanding rather than giving direct answers.';
 
@@ -119,7 +119,7 @@ class AIService
      */
     public function summarizeText(string $text): string
     {
-        $systemPrompt = 'You are a summarisation assistant. Provide a clear, concise summary '
+        $systemPrompt = 'You are a summarization assistant. Provide a clear, concise summary '
                       . 'of the given text, highlighting key points.';
 
         return $this->chat(

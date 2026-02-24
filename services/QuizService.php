@@ -67,7 +67,7 @@ class QuizService
             throw new \InvalidArgumentException('At least one question is required.');
         }
 
-        // Normalise questions
+        // Normalize questions
         $normalised = [];
         foreach ($questions as $i => $q) {
             $normalised[] = [
