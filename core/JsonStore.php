@@ -57,8 +57,8 @@ class JsonStore
         $records = $this->readAll();
 
         $data['id']         = $this->generateUuid();
-        $data['created_at'] = date('Y-m-d\TH:i:s\Z');
-        $data['updated_at'] = date('Y-m-d\TH:i:s\Z');
+        $data['created_at'] = gmdate('Y-m-d\TH:i:s\Z');
+        $data['updated_at'] = gmdate('Y-m-d\TH:i:s\Z');
 
         $records[] = $data;
         $this->writeAll($records);
@@ -75,7 +75,7 @@ class JsonStore
             if (($record['id'] ?? '') === $id) {
                 unset($data['id'], $data['created_at']);
                 $record = array_merge($record, $data);
-                $record['updated_at'] = date('Y-m-d\TH:i:s\Z');
+                $record['updated_at'] = gmdate('Y-m-d\TH:i:s\Z');
                 $found = true;
                 break;
             }

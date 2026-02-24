@@ -21,7 +21,13 @@ class Auth
             return false;
         }
 
-        $user = is_array($users) && isset($users['id']) ? $users : (is_array($users) ? $users[0] : $users);
+        if (is_array($users) && isset($users['id'])) {
+            $user = $users;
+        } elseif (is_array($users) && !empty($users)) {
+            $user = $users[0];
+        } else {
+            return false;
+        }
 
         if (!$this->verifyPassword($password, $user['password'] ?? '')) {
             return false;
