@@ -1,0 +1,7 @@
+storage/data/*.json
+!storage/data/.gitkeep
+
+vendor/
+node_modules/
+.env
+*.log

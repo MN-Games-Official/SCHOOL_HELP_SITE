@@ -90,6 +90,13 @@ class Router
 
     private function executeCallback($callback, array $params): mixed
     {
+        // Handle 'Controller@method' string format
+        if (is_string($callback) && str_contains($callback, '@')) {
+            [$class, $method] = explode('@', $callback, 2);
+            $instance = new $class();
+            return call_user_func_array([$instance, $method], $params);
+        }
+
         if (is_callable($callback)) {
             return call_user_func_array($callback, $params);
         }
